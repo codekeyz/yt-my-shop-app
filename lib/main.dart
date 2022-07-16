@@ -16,7 +16,8 @@ class _AppDataProviders extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<LoaderController>(create: (_) => LoaderController()),
+        ChangeNotifierProvider<LoaderController>(
+            create: (_) => LoaderController()),
       ],
       child: child,
     );
@@ -43,7 +44,28 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return LoaderWrapper(child: child!);
       },
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+        backgroundColor: Colors.white,
+        splashColor: Colors.white,
+        canvasColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.white),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          fillColor: Colors.white,
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.w300,
+            color: Colors.black,
+            fontSize: 14,
+          ),
+        ),
+      ),
     );
   }
 }
