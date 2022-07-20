@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/model/product.dart';
 import 'package:flutter_boilerplate/pages/widget/product_item.dart';
+import 'package:flutter_boilerplate/router/user_router.gr.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,26 +18,36 @@ class _HomeScreenState extends State<HomeScreen> {
       'Aloe Vera',
       20.00,
       AssetImage('assets/img/aloe_vera.png'),
+      description:
+          "Now equipped with seventh-generation Intel Core processors, Laptop is snappier than ever. From daily tasks like launching apps and opening files to more advanced computing, you can power through your day thanks to faster SSDs and Turbo Boost processing up to 3.6GHz.",
     ),
     Product(
       'Basket Ball',
       50.00,
       AssetImage('assets/img/basketball.png'),
+      description:
+          "Now equipped with seventh-generation Intel Core processors, Laptop is snappier than ever. From daily tasks like launching apps and opening files to more advanced computing, you can power through your day thanks to faster SSDs and Turbo Boost processing up to 3.6GHz.",
     ),
     Product(
       'Fruits',
       100.00,
       AssetImage('assets/img/fruits.png'),
+      description:
+          "Now equipped with seventh-generation Intel Core processors, Laptop is snappier than ever. From daily tasks like launching apps and opening files to more advanced computing, you can power through your day thanks to faster SSDs and Turbo Boost processing up to 3.6GHz.",
     ),
     Product(
       'Allstars',
       90.00,
       AssetImage('assets/img/allstar.png'),
+      description:
+          "Now equipped with seventh-generation Intel Core processors, Laptop is snappier than ever. From daily tasks like launching apps and opening files to more advanced computing, you can power through your day thanks to faster SSDs and Turbo Boost processing up to 3.6GHz.",
     ),
     Product(
       'Allstar Newest',
       100.00,
       AssetImage('assets/img/allstar_nice.png'),
+      description:
+          "Now equipped with seventh-generation Intel Core processors, Laptop is snappier than ever. From daily tasks like launching apps and opening files to more advanced computing, you can power through your day thanks to faster SSDs and Turbo Boost processing up to 3.6GHz.",
     )
   ];
   @override
@@ -80,7 +92,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: GridView(
         padding: const EdgeInsets.all(16),
-        children: _productsList.map((e) => ProductItem(product: e)).toList(),
+        children: _productsList
+            .map((e) => ProductItem(
+                product: e,
+                onTap: () {
+                  AutoRouter.of(context).push(ProductDetailRoute(product: e));
+                }))
+            .toList(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 10,
