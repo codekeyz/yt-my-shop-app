@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/pages/category_screen.dart';
 import 'package:flutter_boilerplate/pages/home_screen.dart';
 import 'package:flutter_boilerplate/pages/index_screen.dart';
+import 'package:flutter_boilerplate/pages/product_detail_screen.dart';
 import 'package:flutter_boilerplate/pages/splash_screen.dart';
 
 @AdaptiveAutoRouter(
@@ -27,7 +29,7 @@ import 'package:flutter_boilerplate/pages/splash_screen.dart';
           path: 'category',
           name: 'CategoryTab',
           initial: true,
-          page: Container,
+          page: CategoryScreen,
         ),
         AutoRoute(
           path: 'account',
@@ -37,6 +39,11 @@ import 'package:flutter_boilerplate/pages/splash_screen.dart';
         ),
       ],
     ),
+    AutoRoute(
+      path: '/product/detail',
+      name: 'ProductDetailRoute',
+      page: ProductDetailScreen,
+    )
   ],
 )
 class $UserRouter {}
