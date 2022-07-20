@@ -4,10 +4,12 @@ import 'package:flutter_boilerplate/widgets/card_with_image.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
+  final VoidCallback onTap;
 
   const ProductItem({
     Key? key,
     required this.product,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -17,7 +19,7 @@ class ProductItem extends StatelessWidget {
       cardWidth: 200,
       title: product.name,
       description: 'USD ${product.price}',
-      onTap: () {},
+      onTap: onTap,
       imageProvider: product.image,
       alignment: CrossAxisAlignment.center,
       subtitleStyle: const TextStyle(
